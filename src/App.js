@@ -32,7 +32,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map))
 function App() {
   return (
 
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}/`} >
       <div>
         <nav>
         </nav>
@@ -45,7 +45,7 @@ function App() {
           <Route path="/trail">
             <Trails />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <TrailSearch />
           </Route>
 
@@ -70,9 +70,9 @@ const Trails = () => {
         <Route path={`${match.path}/:externalID`}>
           <ATrail />
         </Route>
-        <Route path={match.path}>
+        {/* <Route path={match.path}>
           <h3>Please select a topic. </h3>
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );
