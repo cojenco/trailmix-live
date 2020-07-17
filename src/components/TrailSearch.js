@@ -6,7 +6,7 @@ import SearchResult from './SearchResult';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 
 
-const TrailSearch = (props) => {
+const TrailSearch = ({ onSelectTrail }) => {
 
   const [ stateSelected, setStateSelected ] = useState({value: ''});
   const [ searchBar, setSearchBar ] = useState('');
@@ -29,7 +29,6 @@ const TrailSearch = (props) => {
     axios
     .get(`${BASE_URL}/all-trails/${event.target.value}`)
     .then((response) => {
-      console.log(response.data.trails);
       const newSearchResults = response.data.trails;
       setSearchResults(newSearchResults);
     })
@@ -38,20 +37,6 @@ const TrailSearch = (props) => {
     })
   };
 
-  // const onSearchSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   axios
-  //   .get(`${BASE_URL}/all-trails/`)
-  //   .then((response) => {
-  //     console.log(response.data.trails);
-  //     const newSearchResults = response.data.trails;
-  //     setSearchResults(newSearchResults);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error.message);
-  //   })
-  // }
 
   const onSearchSubmit = (event) => {
     event.preventDefault();
@@ -61,38 +46,16 @@ const TrailSearch = (props) => {
     setSearchBar('');
   }
 
-  // const onSelectSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   axios
-  //   .get(`${BASE_URL}/all-trails/${stateSelected.value}`)
-  //   .then((response) => {
-  //     console.log(response.data.trails);
-  //     const newSearchResults = response.data.trails;
-  //     setSearchResults(newSearchResults);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error.message);
-  //   })
-  // }
-
-  // const allSearchResults = searchResults.map((trail) => {
-  //   return (
-  //     <div key={trail.id}>
-  //       {trail.name}
-  //     </div>
-  //   );
-  // })
 
   const allKeywordResults = keywordResults.map((trail) => {
     return (
-      <SearchResult key={trail.id} trail={trail} />
+      <SearchResult key={trail.id} trail={trail} onSelectTrail={onSelectTrail} />
     );
   })
 
   const stateOptions = USA.map((single_state) => {
     return (
-    <option value={single_state}> {single_state} </option>
+    <option key={single_state} value={single_state}> {single_state} </option>
     );
   })
 
@@ -132,22 +95,18 @@ const TrailSearch = (props) => {
         </div>
       </form>
 
-      {/* <h3>Keyword Results</h3> */}
       {allKeywordResults}
 
-      {/* <h3>Explore Trails in {stateSelected.value} </h3>
-      {allSearchResults} */}
-
     </div>
-
   )
 }
 
 
 const USA = [
-  'AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI',
-  'IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT',
-  'NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD',
-  'TN','TX','UT','VA','VT','WA','WI','WV','WY']
+  'AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA',
+  'HI','IA','ID','IL','IN','KS','KY','LA','MA','MD',
+  'ME','MI','MN','MO','MS','MT','NC','ND','NE','NH',
+  'NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC',
+  'SD','TN','TX','UT','VA','VT','WA','WI','WV','WY']
 
 export default TrailSearch;
