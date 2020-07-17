@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/trailmix-live/static/css/main.91676469.chunk.css",
+    "main.js": "/trailmix-live/static/js/main.e233d063.chunk.js",
+    "main.js.map": "/trailmix-live/static/js/main.e233d063.chunk.js.map",
+    "runtime-main.js": "/trailmix-live/static/js/runtime-main.179768a1.js",
+    "runtime-main.js.map": "/trailmix-live/static/js/runtime-main.179768a1.js.map",
+    "static/css/2.829c9cb5.chunk.css": "/trailmix-live/static/css/2.829c9cb5.chunk.css",
+    "static/js/2.70fba98b.chunk.js": "/trailmix-live/static/js/2.70fba98b.chunk.js",
+    "static/js/2.70fba98b.chunk.js.map": "/trailmix-live/static/js/2.70fba98b.chunk.js.map",
+    "index.html": "/trailmix-live/index.html",
+    "precache-manifest.5854539525c82aa4c687344c72a6ea4a.js": "/trailmix-live/precache-manifest.5854539525c82aa4c687344c72a6ea4a.js",
+    "service-worker.js": "/trailmix-live/service-worker.js",
+    "static/css/2.829c9cb5.chunk.css.map": "/trailmix-live/static/css/2.829c9cb5.chunk.css.map",
+    "static/css/main.91676469.chunk.css.map": "/trailmix-live/static/css/main.91676469.chunk.css.map",
+    "static/js/2.70fba98b.chunk.js.LICENSE.txt": "/trailmix-live/static/js/2.70fba98b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.179768a1.js",
+    "static/css/2.829c9cb5.chunk.css",
+    "static/js/2.70fba98b.chunk.js",
+    "static/css/main.91676469.chunk.css",
+    "static/js/main.e233d063.chunk.js"
+  ]
+}
