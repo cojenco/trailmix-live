@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "28945dfb34e281351143b3ef8f2c2fea",
+    "revision": "ca77b63499975a27ec7266d11c0ec105",
     "url": "/trailmix-live/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/trailmix-live/static/css/2.829c9cb5.chunk.css"
   },
   {
-    "revision": "70016a1309db4ff7e6af",
+    "revision": "ee2ab56d2590b193caf5",
     "url": "/trailmix-live/static/css/main.91676469.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/trailmix-live/static/js/2.89c2c474.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "70016a1309db4ff7e6af",
-    "url": "/trailmix-live/static/js/main.7071a1bb.chunk.js"
+    "revision": "ee2ab56d2590b193caf5",
+    "url": "/trailmix-live/static/js/main.aac8550c.chunk.js"
   },
   {
     "revision": "65c39287adff8051525c",
