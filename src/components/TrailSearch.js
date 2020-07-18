@@ -64,8 +64,8 @@ const TrailSearch = ({ onSelectTrail }) => {
     <div className="d-flex flex-column trailsearch-main-container" >
 
       {/* <form onSubmit={onSelectSubmit}> */}
-        <select value={stateSelected.value} onChange={onSelectState} className="custom-select">
-          <option defaultValue>Select State</option>
+        <select value={stateSelected.value} onChange={onSelectState} className="custom-select" id="state-select" >
+          <option defaultValue> 1 * Select State </option>
 
           <option value="WA">WA</option>
 
@@ -74,29 +74,34 @@ const TrailSearch = ({ onSelectTrail }) => {
       {/* </form> */}
 
 
-      <form onSubmit={ onSearchSubmit } className="align-self-center" >
-        <div className="input-group">
+      <form onSubmit={ onSearchSubmit } className="" >
+        <div className="input-group d-flex flex-column flex-wrap" id="input-section" >
           <input
             type='type'
             name='query'
             className='searchbox'
+            id='search-form'
+            placeholder="  2   Enter Keyword OR Click Search"
             onChange={onInputChange}
             value={searchBar}
           />
-          <div className="input-group-append">
-            <input
-              className="btn btn-secondary btn-style bg-dark"
-              type="submit"
-              name="submit"
-              value="Search"
-              onClick={ onSearchSubmit }
-            />
-          </div>
+
+          <input
+            className="btn btn-secondary btn-style bg-dark"
+            id="search-btn"
+            type="submit"
+            name="submit"
+            value="Search"
+            onClick={ onSearchSubmit }
+          />
         </div>
       </form>
 
-      {allKeywordResults}
+      <section className="results-section" >
 
+        {allKeywordResults}
+
+      </section>
     </div>
   )
 }
