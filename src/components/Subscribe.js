@@ -70,7 +70,7 @@ const Subscribe = ({trail, refresh}) => {
         variant="contained"
         color="secondary"
         size="large"
-        className=""
+        className="shadow"
         startIcon={<FavoriteIcon />}
         onClick={showModal}
         value="Thunder"

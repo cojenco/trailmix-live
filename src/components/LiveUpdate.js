@@ -127,7 +127,7 @@ const LiveUpdate = ({trail, refresh}) => {
         variant="contained"
         color="primary"
         size="large"
-        className=""
+        className="shadow"
         startIcon={<FlashOnIcon />}
         onClick={showModal}
         value="Thunder"

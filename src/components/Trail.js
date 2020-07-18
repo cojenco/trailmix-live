@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './Trail.css';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 import axios from 'axios';
 import Subscribe from './Subscribe';
@@ -134,23 +135,29 @@ const Trail = ({ externalID }) => {
 
 
   return (
-    <div className="container trail-main-container ">
+    <div className="container trail-main-container text-center">
 
       <div className="card">
-        <img className="card-img trail-img" src={trailData.imgMedium} alt="Card image" />
+        <img className="card-img trail-img shadow" src={trailData.imgMedium} alt="Card image" />
         <div className="card-img-overlay">
           <p className="card-text"></p>
         </div>
       </div>
 
-
-      <h3>{ trailData.name }</h3>
-      <p> 
-        <span> {trailData.location} </span> 
+      <section>
+        <h1>{ trailData.name }</h1>
+        <h4> 
+        <span className="text-muted" > {trailData.location} </span> 
         {/* <span> {trailData.length} mi </span> */}
-      </p>
+      </h4>
 
-      <p> ❤️  {subscriptions} subscribed within past 3 days </p>
+      </section>
+
+
+      <div>
+        <FavoriteIcon color="secondary" />
+        <h5>  {subscriptions} subscribed within past 3 days </h5>
+      </div>
 
       {/* <div>
         <a href="#!" className="btn btn-outline-danger"> ❤️ Subscribe to Trail</a>
@@ -163,39 +170,36 @@ const Trail = ({ externalID }) => {
 
     
       <div className="card-deck">
-        <div className="card">
+        <div className="card border-0 shadow">
           <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3cnK49FbkKIBreGnKxXexLYxK_Ta57aITBbQE4yYtRyV3foDMd9HyGBpUouADLSY4Q0dda1BzXbAhyUSFSoVTu7WjDpcCl5Drl9G2ndLkD-M3xiYW-PzMnjINXnr5erFkWNK3b9VqlQJneARaytSH2FgA=w1692-h1128-no?authuser=0" alt="Card image cap" />
           <div className="card-img-overlay text-center text-light">
             <h3> Parking </h3>
           </div>
           <div className="card-body">
-            <p className="card-text">🅿️ Parking {parking_stat()} </p>
+            <h5 className="card-text">🅿️ Parking {parking_stat()} </h5>
             <a className="card-link"> {parking_timestamp()} </a>
-            <a href="#!" className="card-link"> See History </a>
           </div>
         </div>
 
-        <div className="card">
+        <div className="card border-0 shadow">
           <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3f_QJYX55Fplkf43FB_1lXkjVLOj879wdVAiqOJiXkoUaP1fw_suexKflTRns3kQO1KRVj3jezRQT5V9JeutIc8UHRqRrFG9IiToFRoounFyIWAqJaQ1_40R6fvQ2BNczZ12YGQILNUxM6AzXn98xuvQg=w1840-h1226-no?authuser=0" alt="Card image cap" />
           <div className="card-img-overlay text-center text-light">
             <h3> Visitors </h3>
           </div>
           <div className="card-body">
-            <p className="card-text"> 🥾 Visitors {visitor_stat()} </p>
+            <h5 className="card-text"> 🥾 {visitor_stat()} </h5>
             <a className="card-link"> {visitor_timestamp()} </a>
-            <a href="#!" className="card-link"> See History </a>
           </div>
         </div>
 
-        <div className="card">
+        <div className="card border-0 shadow">
           <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3e6hm4nmqR9HWG4fPUvAyeWoSo34lYA9J0vv01VgLPbI4zyvEZ-CESUVZnycYH-Xv6_M9MXnGFRPVZFPM_IFqY6ExQPKlM-2bGW9FOzuYEzevXsKz97QIbEg39i4zPXueR1GQk_jVD3uYtODbqBt8X8ZQ=w1840-h1226-no?authuser=0" alt="Card image cap" />
           <div className="card-img-overlay text-center text-light">
             <h3> Weather </h3>
           </div>
           <div className="card-body">
-            <p className="card-text"> ❄️ Weather {weather_stat()} </p>
+            <h5 className="card-text"> 🌡️  {weather_stat()} </h5>
             <a className="card-link"> {weather_timestamp()} </a>
-            <a href="#!" className="card-link"> See History </a>
           </div>
         </div>
       </div>
@@ -203,7 +207,7 @@ const Trail = ({ externalID }) => {
       { trailData.conditionStatus == 'Unknown' ? "" :
       <div className="card">
         <div className="card-header">
-          <p> 🚧 Other Conditions Update </p>
+          <h5> 🚧 Other Conditions Update </h5>
         </div>
         <div className="card-body">
           <a className="card-link"> {trailData.conditionStatus} </a>
@@ -213,7 +217,7 @@ const Trail = ({ externalID }) => {
       </div>
       }
 
-      <div className="card">
+      <div className="card shadow">
         <div className="card-body">
           <h4 className="card-title">  {trailData.name} </h4>
           
