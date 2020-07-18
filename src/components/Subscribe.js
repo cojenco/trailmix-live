@@ -24,6 +24,7 @@ const Subscribe = ({trail, refresh}) => {
 
 
   const hideModal = () => {
+    setPhoneInput('');
     setIsOpen(false);
   }
 
