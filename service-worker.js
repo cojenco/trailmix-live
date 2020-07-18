@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/trailmix-live/precache-manifest.b9d52f2a7dcc4681896d65c85edec19e.js"
+  "/trailmix-live/precache-manifest.93096e15213208125c9ff1f9f0577846.js"
 );
 
 self.addEventListener('message', (event) => {
