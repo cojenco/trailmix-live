@@ -11,17 +11,20 @@
 
 #state-select {
   width: 75vw;
+  height: 3.5rem;
   align-self: center;
 }
 
 #search-form {
   width: 75vw;
+  height: 3.5rem;
   display: block;
   align-self: center;
 }
 
 #search-btn {
   width: 75vw;
+  height: 3.5rem;
   display: block;
   align-self: center;
 }

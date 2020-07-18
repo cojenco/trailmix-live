@@ -64,7 +64,7 @@ const TrailSearch = ({ onSelectTrail }) => {
     <div className="d-flex flex-column trailsearch-main-container" >
 
       {/* <form onSubmit={onSelectSubmit}> */}
-        <select value={stateSelected.value} onChange={onSelectState} className="custom-select" id="state-select" >
+        <select value={stateSelected.value} onChange={onSelectState} className="custom-select rounded mb-3" id="state-select" >
           <option defaultValue> 1 * Select State </option>
 
           <option value="WA">WA</option>
@@ -79,7 +79,7 @@ const TrailSearch = ({ onSelectTrail }) => {
           <input
             type='type'
             name='query'
-            className='searchbox'
+            className='searchbox rounded mb-3'
             id='search-form'
             placeholder="  2   Enter Keyword OR Click Search"
             onChange={onInputChange}
@@ -87,7 +87,7 @@ const TrailSearch = ({ onSelectTrail }) => {
           />
 
           <input
-            className="btn btn-secondary btn-style bg-dark"
+            className="btn btn-secondary btn-style bg-dark rounded mb-3"
             id="search-btn"
             type="submit"
             name="submit"
