@@ -24,25 +24,38 @@ const TrailSearch = ({ onSelectTrail }) => {
   const onSelectState = (event) => {
     setStateSelected({value: event.target.value});
     setKeywordResults([]);
-    console.log(stateSelected);
+    // console.log(stateSelected);
 
-    axios
-    .get(`${BASE_URL}/all-trails/${event.target.value}`)
-    .then((response) => {
-      const newSearchResults = response.data.trails;
-      setSearchResults(newSearchResults);
-    })
-    .catch((error) => {
-      console.log(error.message);
-    })
+    // axios
+    // .get(`${BASE_URL}/all-trails/${event.target.value}`)
+    // .then((response) => {
+    //   const newSearchResults = response.data.trails;
+    //   setSearchResults(newSearchResults);
+    // })
+    // .catch((error) => {
+    //   console.log(error.message);
+    // })
   };
 
 
   const onSearchSubmit = (event) => {
     event.preventDefault();
+    const state = stateSelected.value;
 
-    const newKeywordResults = searchResults.filter(trail => trail.name.toLowerCase().includes(searchBar.toLowerCase()));
-    setKeywordResults(newKeywordResults);
+    axios
+    .get(`${BASE_URL}/all-trails/${state}`)
+    .then((response) => {
+      const newSearchResults = response.data.trails;
+      setSearchResults(newSearchResults);
+      const newKeywordResults = newSearchResults.filter(trail => trail.name.toLowerCase().includes(searchBar.toLowerCase()));
+      setKeywordResults(newKeywordResults);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    })
+
+    // const newKeywordResults = newSearchResults.filter(trail => trail.name.toLowerCase().includes(searchBar.toLowerCase()));
+    // setKeywordResults(newKeywordResults);
     setSearchBar('');
   }
 
