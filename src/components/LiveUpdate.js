@@ -51,7 +51,6 @@ const LiveUpdate = ({trail, refresh}) => {
     setParkingUpdate(false);
     setVisitorUpdate(false);
     setIsOpen(false);
-    // refresh();
   }
 
 
@@ -70,9 +69,7 @@ const LiveUpdate = ({trail, refresh}) => {
         axios
         .post(`${BASE_URL}/trail/${externalID}/live-update`, update)
         .then((response) => {
-          console.log(response.data);
-          console.log('SENT OUT?!!!')
-          // setIsOpen(false);
+          console.log('SENT OUT!!!')
         })
         .catch((error) => {
           console.log(error.message);
@@ -80,11 +77,10 @@ const LiveUpdate = ({trail, refresh}) => {
       }
     }
 
-    setWeatherUpdate({});
-    setParkingUpdate({});
-    setVisitorUpdate({});
+    setWeatherUpdate(false);
+    setParkingUpdate(false);
+    setVisitorUpdate(false);
     setIsOpen(false);
-
     refresh();
   }
 
@@ -94,9 +90,9 @@ const LiveUpdate = ({trail, refresh}) => {
       'category': event.target.name,
       'message': event.target.id,
       'external_id': trail.id,
+      'input': event.target.id,
     };
 
-    console.log(update);
     setWeatherUpdate(update);
   }
 
@@ -110,7 +106,6 @@ const LiveUpdate = ({trail, refresh}) => {
       'input': event.target.id,
     };
 
-    console.log(update);
     setParkingUpdate(update);
   }
 
@@ -121,9 +116,9 @@ const LiveUpdate = ({trail, refresh}) => {
       'category': event.target.name,
       'message': message,
       'external_id': trail.id,
+      'input': event.target.id,
     };
 
-    console.log(update);
     setVisitorUpdate(update);
   }
 
@@ -160,7 +155,6 @@ const LiveUpdate = ({trail, refresh}) => {
         <div className="d-flex flex-row justify-content-center" >
           <div className="custom-control custom-radio">
             <input type="radio" id="0" value="0" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "0" } />
-            {/* <input type="radio" id="0" name="Parking" className="custom-control-input" /> */}
             <label className="custom-control-label" htmlFor="0">          
             <IconButton color="primary" aria-label="capacity-0-full" data-toggle="tooltip" data-placement="top" title="Parking Available 100%">
               <SignalCellular0BarIcon />
@@ -169,7 +163,6 @@ const LiveUpdate = ({trail, refresh}) => {
           </div>
           <div className="custom-control custom-radio">
             <input type="radio" id="25" value="25" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "25" } />
-            {/* <input type="radio" id="25" name="Parking" className="custom-control-input" onClick={onParkingClick} /> */}
             <label className="custom-control-label" htmlFor="25">          
             <IconButton color="primary" aria-label="capacity-25-full" data-toggle="tooltip" data-placement="top" title="25% Full">
               <SignalCellular1BarIcon />
@@ -178,7 +171,6 @@ const LiveUpdate = ({trail, refresh}) => {
           </div>
           <div className="custom-control custom-radio">
             <input type="radio" id="50" value="50" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "50" } />
-            {/* <input type="radio" id="50" name="Parking" className="custom-control-input" onClick={onParkingClick} /> */}
             <label className="custom-control-label" htmlFor="50">          
             <IconButton color="primary" aria-label="capacity-50-full" data-toggle="tooltip" data-placement="top" title="50% Full">
               <SignalCellular2BarIcon />
@@ -187,7 +179,6 @@ const LiveUpdate = ({trail, refresh}) => {
           </div>
           <div className="custom-control custom-radio">
             <input type="radio" id="75" value="75" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "75" } />
-            {/* <input type="radio" id="75" name="Parking" className="custom-control-input" onClick={onParkingClick} /> */}
             <label className="custom-control-label" htmlFor="75">          
             <IconButton color="secondary" aria-label="capacity-75-full" data-toggle="tooltip" data-placement="top" title="75% Full">
               <SignalCellular3BarIcon />
@@ -196,7 +187,6 @@ const LiveUpdate = ({trail, refresh}) => {
           </div>
           <div className="custom-control custom-radio">
             <input type="radio" id="100" value="100" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "100" } />
-            {/* <input type="radio" id="100" name="Parking" className="custom-control-input" onClick={onParkingClick} /> */}
             <label className="custom-control-label" htmlFor="100">          
             <IconButton color="secondary" aria-label="capacity-100-full" data-toggle="tooltip" data-placement="top" title="100% Full">
               <SignalCellular4BarIcon />
@@ -212,7 +202,8 @@ const LiveUpdate = ({trail, refresh}) => {
 
         <div className="d-flex flex-row justify-content-center" >
           <div className="custom-control custom-radio">
-            <input type="radio" id="1-5" name="Visitor" className="custom-control-input" onClick={onVisitorClick} />
+            <input type="radio" id="1-5" value="1-5" name="Visitor" className="custom-control-input" onChange={onVisitorClick} checked={ visitorUpdate && visitorUpdate.input === "1-5" } />
+            {/* <input type="radio" id="1-5" name="Visitor" className="custom-control-input" onClick={onVisitorClick} /> */}
             <label className="custom-control-label" htmlFor="1-5">          
             <IconButton color="primary" aria-label="1-5visitorsinsight" data-toggle="tooltip" data-placement="top" title="1-5 visitors in 300ft">
               <Filter1Icon />
@@ -220,7 +211,8 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="5-9" name="Visitor" className="custom-control-input" onClick={onVisitorClick} />
+            <input type="radio" id="5-9" value="5-9" name="Visitor" className="custom-control-input" onChange={onVisitorClick} checked={ visitorUpdate && visitorUpdate.input === "5-9" } />
+            {/* <input type="radio" id="5-9" name="Visitor" className="custom-control-input" onClick={onVisitorClick} /> */}
             <label className="custom-control-label" htmlFor="5-9">          
             <IconButton color="primary" aria-label="5-9visitorsinsight" data-toggle="tooltip" data-placement="top" title="5-9 visitors in 300ft">
               <Filter5Icon />
@@ -228,7 +220,8 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="9+" name="Visitor" className="custom-control-input" onClick={onVisitorClick} />
+            <input type="radio" id="9+" value="9+" name="Visitor" className="custom-control-input" onChange={onVisitorClick} checked={ visitorUpdate && visitorUpdate.input === "9+" } />
+            {/* <input type="radio" id="9+" name="Visitor" className="custom-control-input" onClick={onVisitorClick} /> */}
             <label className="custom-control-label" htmlFor="9+">          
             <IconButton color="secondary" aria-label="9plusvisitorsinsight" data-toggle="tooltip" data-placement="top" title="9+ visitors in 300ft">
               <Filter9PlusIcon />
@@ -243,7 +236,7 @@ const LiveUpdate = ({trail, refresh}) => {
 
         <div className="d-flex flex-row justify-content-center" >
           <div className="custom-control custom-radio">
-            <input type="radio" id="Sun" name="Weather" className="custom-control-input" onClick={onWeatherClick} />
+            <input type="radio" id="Sun" value="Sun" name="Weather" className="custom-control-input" onChange={onWeatherClick} checked={ weatherUpdate && weatherUpdate.input === "Sun" } />
             <label className="custom-control-label" htmlFor="Sun">          
             <IconButton color="secondary" aria-label="Sun" data-toggle="tooltip" data-placement="top" title="sun">
               <WbSunnyIcon />
@@ -251,7 +244,7 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="Rain" name="Weather" className="custom-control-input" onClick={onWeatherClick} />
+            <input type="radio" id="Rain" value="Rain" name="Weather" className="custom-control-input" onChange={onWeatherClick} checked={ weatherUpdate && weatherUpdate.input === "Rain" } />
             <label className="custom-control-label" htmlFor="Rain">          
             <IconButton color="primary" aria-label="Rain" data-toggle="tooltip" data-placement="top" title="rain">
               <BeachAccessIcon />
@@ -259,7 +252,7 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="Thunder" name="Weather" className="custom-control-input" onClick={onWeatherClick} />
+            <input type="radio" id="Thunder" value="Thunder" name="Weather" className="custom-control-input" onChange={onWeatherClick} checked={ weatherUpdate && weatherUpdate.input === "Thunder" } />
             <label className="custom-control-label" htmlFor="Thunder">          
             <IconButton color="secondary" aria-label="Thunder" data-toggle="tooltip" data-placement="top" title="thunder" >
               <FlashOnIcon />
@@ -267,7 +260,7 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="Hail" name="Weather" className="custom-control-input" onClick={onWeatherClick} />
+            <input type="radio" id="Hail" value="Hail" name="Weather" className="custom-control-input" onChange={onWeatherClick} checked={ weatherUpdate && weatherUpdate.input === "Hail" } />
             <label className="custom-control-label" htmlFor="Hail">          
             <IconButton color="secondary" aria-label="Hail" data-toggle="tooltip" data-placement="top" title="hail" >
               <GrainIcon />
@@ -275,7 +268,7 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="Snow" name="Weather" className="custom-control-input" onClick={onWeatherClick} />
+            <input type="radio" id="Snow" value="Snow" name="Weather" className="custom-control-input" onChange={onWeatherClick} checked={ weatherUpdate && weatherUpdate.input === "Snow" } />
             <label className="custom-control-label" htmlFor="Snow">          
             <IconButton color="primary" aria-label="Snow" onClick={onWeatherClick} value="Snow" data-toggle="tooltip" data-placement="top" title="snow" >
               <AcUnitIcon name="Snow" />
@@ -283,26 +276,6 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
         </div>
-
-
-
-        {/* <div>
-          <IconButton color="secondary" aria-label="add an alarm" onClick={hideModal} data-toggle="tooltip" data-placement="top" title="sun">
-            <WbSunnyIcon />
-          </IconButton>
-          <IconButton color="secondary" aria-label="add an alarm" onClick={hideModal} data-toggle="tooltip" data-placement="top" title="rain">
-            <BeachAccessIcon />
-          </IconButton>
-          <IconButton color="primary" aria-label="add an alarm" onClick={hideModal} data-toggle="tooltip" data-placement="top" title="thunder" >
-            <FlashOnIcon />
-          </IconButton>
-          <IconButton color="secondary" aria-label="add an alarm" onClick={hideModal} data-toggle="tooltip" data-placement="top" title="hail" >
-            <GrainIcon />
-          </IconButton>
-          <IconButton color="primary" aria-label="add an alarm" onClick={onWeatherClick} value="Snow" data-toggle="tooltip" data-placement="top" title="snow" >
-            <AcUnitIcon name="Snow" />
-          </IconButton>
-        </div> */}
 
 
         <div className="modal-footer">
