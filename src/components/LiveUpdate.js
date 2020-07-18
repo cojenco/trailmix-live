@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import './LiveUpdate.css';
@@ -36,9 +36,9 @@ const LiveUpdate = ({trail, refresh}) => {
 
 
   const [isOpen, setIsOpen] = useState(false);
-  const [weatherUpdate, setWeatherUpdate] = useState({});
-  const [parkingUpdate, setParkingUpdate] = useState({});
-  const [visitorUpdate, setVisitorUpdate] = useState({});
+  const [weatherUpdate, setWeatherUpdate] = useState(false);
+  const [parkingUpdate, setParkingUpdate] = useState(false);
+  const [visitorUpdate, setVisitorUpdate] = useState(false);
 
 
   const showModal = () => {
@@ -47,10 +47,11 @@ const LiveUpdate = ({trail, refresh}) => {
 
 
   const hideModal = () => {
-    setWeatherUpdate({});
-    setParkingUpdate({});
-    setVisitorUpdate({});
+    setWeatherUpdate(false);
+    setParkingUpdate(false);
+    setVisitorUpdate(false);
     setIsOpen(false);
+    // refresh();
   }
 
 
@@ -71,13 +72,18 @@ const LiveUpdate = ({trail, refresh}) => {
         .then((response) => {
           console.log(response.data);
           console.log('SENT OUT?!!!')
-          setIsOpen(false);
+          // setIsOpen(false);
         })
         .catch((error) => {
           console.log(error.message);
         });
       }
     }
+
+    setWeatherUpdate({});
+    setParkingUpdate({});
+    setVisitorUpdate({});
+    setIsOpen(false);
 
     refresh();
   }
@@ -101,6 +107,7 @@ const LiveUpdate = ({trail, refresh}) => {
       'category': event.target.name,
       'message': message,
       'external_id': trail.id,
+      'input': event.target.id,
     };
 
     console.log(update);
@@ -152,7 +159,8 @@ const LiveUpdate = ({trail, refresh}) => {
 
         <div className="d-flex flex-row justify-content-center" >
           <div className="custom-control custom-radio">
-            <input type="radio" id="0" name="Parking" className="custom-control-input" onClick={onParkingClick} />
+            <input type="radio" id="0" value="0" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "0" } />
+            {/* <input type="radio" id="0" name="Parking" className="custom-control-input" /> */}
             <label className="custom-control-label" htmlFor="0">          
             <IconButton color="primary" aria-label="capacity-0-full" data-toggle="tooltip" data-placement="top" title="Parking Available 100%">
               <SignalCellular0BarIcon />
@@ -160,7 +168,8 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="25" name="Parking" className="custom-control-input" onClick={onParkingClick} />
+            <input type="radio" id="25" value="25" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "25" } />
+            {/* <input type="radio" id="25" name="Parking" className="custom-control-input" onClick={onParkingClick} /> */}
             <label className="custom-control-label" htmlFor="25">          
             <IconButton color="primary" aria-label="capacity-25-full" data-toggle="tooltip" data-placement="top" title="25% Full">
               <SignalCellular1BarIcon />
@@ -168,7 +177,8 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="50" name="Parking" className="custom-control-input" onClick={onParkingClick} />
+            <input type="radio" id="50" value="50" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "50" } />
+            {/* <input type="radio" id="50" name="Parking" className="custom-control-input" onClick={onParkingClick} /> */}
             <label className="custom-control-label" htmlFor="50">          
             <IconButton color="primary" aria-label="capacity-50-full" data-toggle="tooltip" data-placement="top" title="50% Full">
               <SignalCellular2BarIcon />
@@ -176,7 +186,8 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="75" name="Parking" className="custom-control-input" onClick={onParkingClick} />
+            <input type="radio" id="75" value="75" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "75" } />
+            {/* <input type="radio" id="75" name="Parking" className="custom-control-input" onClick={onParkingClick} /> */}
             <label className="custom-control-label" htmlFor="75">          
             <IconButton color="secondary" aria-label="capacity-75-full" data-toggle="tooltip" data-placement="top" title="75% Full">
               <SignalCellular3BarIcon />
@@ -184,7 +195,8 @@ const LiveUpdate = ({trail, refresh}) => {
             </label>
           </div>
           <div className="custom-control custom-radio">
-            <input type="radio" id="100" name="Parking" className="custom-control-input" onClick={onParkingClick} />
+            <input type="radio" id="100" value="100" name="Parking" className="custom-control-input" onChange={onParkingClick} checked={ parkingUpdate && parkingUpdate.input === "100" } />
+            {/* <input type="radio" id="100" name="Parking" className="custom-control-input" onClick={onParkingClick} /> */}
             <label className="custom-control-label" htmlFor="100">          
             <IconButton color="secondary" aria-label="capacity-100-full" data-toggle="tooltip" data-placement="top" title="100% Full">
               <SignalCellular4BarIcon />
