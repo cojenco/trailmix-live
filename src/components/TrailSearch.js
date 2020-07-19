@@ -74,7 +74,9 @@ const TrailSearch = ({ onSelectTrail }) => {
 
 
   return (
-    <div className="d-flex flex-column trailsearch-main-container" >
+    <div className="d-flex flex-column trailsearch-main-container text-center" >
+
+      <h1> Find <span id="live" > LIVE </span> updates on your next hike </h1>
 
       {/* <form onSubmit={onSelectSubmit}> */}
         <select value={stateSelected.value} onChange={onSelectState} className="custom-select rounded mb-3" id="state-select" >
