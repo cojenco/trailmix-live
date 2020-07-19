@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/trailmix-live/static/css/main.1ddfdcc6.chunk.css",
-    "main.js": "/trailmix-live/static/js/main.019cfe1d.chunk.js",
-    "main.js.map": "/trailmix-live/static/js/main.019cfe1d.chunk.js.map",
+    "main.css": "/trailmix-live/static/css/main.1564f032.chunk.css",
+    "main.js": "/trailmix-live/static/js/main.754578cd.chunk.js",
+    "main.js.map": "/trailmix-live/static/js/main.754578cd.chunk.js.map",
     "runtime-main.js": "/trailmix-live/static/js/runtime-main.179768a1.js",
     "runtime-main.js.map": "/trailmix-live/static/js/runtime-main.179768a1.js.map",
     "static/css/2.829c9cb5.chunk.css": "/trailmix-live/static/css/2.829c9cb5.chunk.css",
     "static/js/2.0ba67b2f.chunk.js": "/trailmix-live/static/js/2.0ba67b2f.chunk.js",
     "static/js/2.0ba67b2f.chunk.js.map": "/trailmix-live/static/js/2.0ba67b2f.chunk.js.map",
     "index.html": "/trailmix-live/index.html",
-    "precache-manifest.e2ea56081d797c75ef0b668a163a5141.js": "/trailmix-live/precache-manifest.e2ea56081d797c75ef0b668a163a5141.js",
+    "precache-manifest.b40f256538825b947c0cfe18ac5562e3.js": "/trailmix-live/precache-manifest.b40f256538825b947c0cfe18ac5562e3.js",
     "service-worker.js": "/trailmix-live/service-worker.js",
     "static/css/2.829c9cb5.chunk.css.map": "/trailmix-live/static/css/2.829c9cb5.chunk.css.map",
-    "static/css/main.1ddfdcc6.chunk.css.map": "/trailmix-live/static/css/main.1ddfdcc6.chunk.css.map",
+    "static/css/main.1564f032.chunk.css.map": "/trailmix-live/static/css/main.1564f032.chunk.css.map",
     "static/js/2.0ba67b2f.chunk.js.LICENSE.txt": "/trailmix-live/static/js/2.0ba67b2f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.179768a1.js",
     "static/css/2.829c9cb5.chunk.css",
     "static/js/2.0ba67b2f.chunk.js",
-    "static/css/main.1ddfdcc6.chunk.css",
-    "static/js/main.019cfe1d.chunk.js"
+    "static/css/main.1564f032.chunk.css",
+    "static/js/main.754578cd.chunk.js"
   ]
 }
