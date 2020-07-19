@@ -22,7 +22,7 @@ const Trail = ({ externalID }) => {
   const [ refresh, setRefresh ] = useState(0);
 
 
-  // Make API call when componentDidMount 
+  // Make API call when componentDidMount and page refreshed (any status updated)
   useEffect(() => {
     axios
     .get(`${BASE_URL}/trail/${externalID}`)
@@ -61,7 +61,9 @@ const Trail = ({ externalID }) => {
   const weather_timestamp = () => {
     let stats = emptyStatus[0].created_at;
     if ( weatherStats.length !== 0 ) {
-      stats = weatherStats[0].created_at;
+      const timestamp = weatherStats[0].created_at;
+      const dateObj = new Date(timestamp);
+      stats = dateObj.toLocaleString();
     } 
 
     return stats;
@@ -80,7 +82,9 @@ const Trail = ({ externalID }) => {
   const parking_timestamp = () => {
     let stats = emptyStatus[0].created_at;
     if ( parkingStats.length !== 0 ) {
-      stats = parkingStats[0].created_at;
+      const timestamp = parkingStats[0].created_at;
+      const dateObj = new Date(timestamp);
+      stats = dateObj.toLocaleString();
     } 
 
     return stats;
@@ -100,7 +104,9 @@ const Trail = ({ externalID }) => {
   const visitor_timestamp = () => {
     let stats = emptyStatus[0].created_at;
     if ( visitorStats.length !== 0 ) {
-      stats = visitorStats[0].created_at;
+      const timestamp = visitorStats[0].created_at;
+      const dateObj = new Date(timestamp);
+      stats = dateObj.toLocaleString();
     } 
 
     return stats;
@@ -131,8 +137,6 @@ const Trail = ({ externalID }) => {
   // </div>
   //////////////////////////////////////////////////
 
-  
-
 
   return (
     <div className="container trail-main-container text-center">
@@ -158,11 +162,6 @@ const Trail = ({ externalID }) => {
         <FavoriteIcon color="secondary" />
         <h5>  {subscriptions} subscribed within past 3 days </h5>
       </div>
-
-      {/* <div>
-        <a href="#!" className="btn btn-outline-danger"> ❤️ Subscribe to Trail</a>
-        <a href="#!" className="btn btn-outline-warning"> ⚡ Update Live Status</a>
-      </div> */}
 
 
       <Subscribe trail={trailData} refresh={count_refresh} />
@@ -239,78 +238,6 @@ const Trail = ({ externalID }) => {
           mapElement={<div style={{ height: "100%" }} />}
         />
       </div> */}
-
-
-      {/* <div className="card-deck">
-        <div className="card">
-          <div className="card-body">
-            <p className="card-text">🅿️ Parking </p>
-          </div>
-          <img src="https://lh3.googleusercontent.com/pw/ACtC-3d8CpznyJCbdbAsNomKbBcF_jz5Yj1xGF0OdePC_XArTlw2q9T0q7_W-DHbrzwRsoOpt8rDfpnCk1e3t5FWH6OSe9_8oiId052ykWxZht4SEl5QrpMm6az20iE6TMAzUX9f4cDwRu4-tvk9WUUIvLiavw=w1840-h1226-no?authuser=0" alt="Card image" className="status-img" />
-          <div className="card-body">
-            <p className="card-text">75% Full</p>
-            <a className="card-link"> timestamp here </a>
-            <a href="#!" className="card-link"> See History </a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-body">
-            <p className="card-text"> ❄️ Weather </p>
-          </div>
-          <img src="https://lh3.googleusercontent.com/pw/ACtC-3e6hm4nmqR9HWG4fPUvAyeWoSo34lYA9J0vv01VgLPbI4zyvEZ-CESUVZnycYH-Xv6_M9MXnGFRPVZFPM_IFqY6ExQPKlM-2bGW9FOzuYEzevXsKz97QIbEg39i4zPXueR1GQk_jVD3uYtODbqBt8X8ZQ=w1840-h1226-no?authuser=0" alt="Card image" className="status-img" />
-          <div className="card-body">
-            <p className="card-text"> Thunder </p>
-            <a className="card-link"> timestamp here </a>
-            <a href="#!" className="card-link"> See History </a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-body">
-            <p className="card-text"> 🥾 Visitors </p>
-          </div>
-          <img src="https://lh3.googleusercontent.com/pw/ACtC-3f_QJYX55Fplkf43FB_1lXkjVLOj879wdVAiqOJiXkoUaP1fw_suexKflTRns3kQO1KRVj3jezRQT5V9JeutIc8UHRqRrFG9IiToFRoounFyIWAqJaQ1_40R6fvQ2BNczZ12YGQILNUxM6AzXn98xuvQg=w1840-h1226-no?authuser=0" alt="Card image" className="status-img" />
-          <div className="card-body">
-            <p className="card-text"> 5-10 ppl within 0.1mi</p>
-            <a className="card-link"> timestamp here </a>
-            <a href="#!" className="card-link"> See History </a>
-          </div>
-        </div>
-      </div> */}
-
-
-      {/* <div className="card-deck">
-        <div className="card">
-          <div className="card-header">
-            <p> 🅿️ Parking </p>
-          </div>
-          <div className="card-body">
-            <p className="card-text"> 75% Full</p>
-            <a className="card-link"> timestamp here </a>
-            <a href="#!" className="card-link"> See History </a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-header">
-            <p> ❄️ Weather </p>
-          </div>
-          <div className="card-body">
-            <p className="card-text"> Thunder</p>
-            <a className="card-link"> timestamp here </a>
-            <a href="#!" className="card-link"> See History </a>
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-header">
-            <p> 🥾 Visitors </p>
-          </div>
-          <div className="card-body">
-            <p className="card-text"> 🦶🦶🦶🦶🦶👩🏻‍🤝‍👩🏽👩🏻‍🤝‍👩🏽‍🦶👣</p>
-            <a className="card-link"> timestamp here </a>
-            <a href="#!" className="card-link"> See History </a>
-          </div>
-        </div>
-      </div> */}
-
 
     </div>
   )
