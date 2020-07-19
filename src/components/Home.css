@@ -19,7 +19,7 @@
 .third-block {
   margin: 0;
   padding: 2rem;
-  width: 100vw;
+  width: 100%;
   min-height: 90vh;
   height: auto;
   background-color: rgb(100, 121, 115);
@@ -31,9 +31,6 @@
   /* font-size: 2.5rem; */
 }
 
-.hp-link {
-  color: 
-}
 
 @include media-breakpoint-up(sm) {
   .hashtag-line {
