@@ -4,6 +4,7 @@ import './App.css';
 import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
 import TrailSearch from './components/TrailSearch';
+import Home from './components/Home';
 import Navbar from 'react-bootstrap/Navbar'
 
 
@@ -39,11 +40,14 @@ const App = () => {
 
         <Trail externalID={trailID} /> : 
         
-        <TrailSearch onSelectTrail={selectTrail} /> 
+        <div className="main-div" >
+          <TrailSearch onSelectTrail={selectTrail} /> 
+          <Home />
+        </div>
       
       }
-
-      <footer className="footer p-t-1 bg-light app-footer">
+      
+      <footer className="footer p-t-1 bg-dark app-footer">
         <div className="container d-flex flex-column text-center">
           <a href="/trailmix-live/" className="align-self-center" >           
             <img
