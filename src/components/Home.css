@@ -1,0 +1,52 @@
+.home-second {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+}
+
+.second-block {
+  margin: 0;
+  padding: 2rem;
+  min-height: 90vh;
+  height: auto;
+}
+
+.second-block > * {
+  margin: 1.5rem;
+}
+
+.third-block {
+  margin: 0;
+  padding: 2rem;
+  width: 100vw;
+  min-height: 90vh;
+  height: auto;
+  background-color: rgb(100, 121, 115);
+  color: whitesmoke;
+}
+
+.hashtag-line {
+  color: rgb(128, 212, 11);
+  /* font-size: 2.5rem; */
+}
+
+.hp-link {
+  color: 
+}
+
+@include media-breakpoint-up(sm) {
+  .hashtag-line {
+    font-size: 1rem;
+  }
+}
+@include media-breakpoint-up(md) {
+  .hashtag-line {
+    font-size: 1rem;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .hashtag-line {
+    font-size: 1rem;
+  }
+}
