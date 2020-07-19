@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
 
-    <div class="d-flex flex-column justify-content-around align-items-center flex-wrap home-second">
+    <div className="d-flex flex-column justify-content-around align-items-center flex-wrap home-second">
 
       <div className="container d-flex flex-column text-center second-block">
         <h2 className="mb-3" > Ten Essentials </h2>
@@ -17,7 +17,7 @@ const Home = () => {
           <p className="mb-0"> Navigation. Sun Protection. Insulation. Illumination. First-Aid Supplies. Fire. </p>
           <p className="mb-0"> Repair Kit and Tools. Nutrition. Hydration. Emergency Shelter.  </p>
           <p className="mb-0 text-muted"> (Also, check out Trail Mix Live!) </p>
-          <footer class="blockquote-footer">  <a href="https://www.nps.gov/articles/10essentials.htm" className="text-dark" > <cite title="Source Title">National Park Service</cite> </a> </footer>
+          <footer className="blockquote-footer">  <a href="https://www.nps.gov/articles/10essentials.htm" className="text-dark" > <cite title="Source Title">National Park Service</cite> </a> </footer>
         </blockquote>
 
         <a href="https://www.nps.gov/articles/10essentials.htm" className="align-self-center" >           
@@ -39,7 +39,7 @@ const Home = () => {
             className="d-inline-block align-top w-50"
           /> 
           </a>
-          {/* <footer class="blockquote-footer">  <a href="https://www.wta.org/go-outside/trail-smarts" className="text-light" > <cite title="Source Title">Washington Trails Association, Washington’s Recreate Responsibly Coalition</cite> </a> </footer> */}
+          {/* <footer className="blockquote-footer">  <a href="https://www.wta.org/go-outside/trail-smarts" className="text-light" > <cite title="Source Title">Washington Trails Association, Washington’s Recreate Responsibly Coalition</cite> </a> </footer> */}
         </blockquote>
         <h2 className="hashtag-line" > #RecreateResponsibly </h2>
 
@@ -51,7 +51,7 @@ const Home = () => {
         <blockquote className="blockquote text-center">
           <p>Your actions can have an impact on trails and wildlife. </p>
           <p>"We all have a role to play in keeping people, places and communities safe as we enjoy the outdoors this summer and beyond."</p>
-          <footer class="blockquote-footer">  <a href="https://www.wta.org/go-outside/trail-smarts" className="text-light" > <cite title="Source Title">Washington Trails Association, Recreate Responsibly Coalition</cite> </a> </footer>
+          <footer className="blockquote-footer">  <a href="https://www.wta.org/go-outside/trail-smarts" className="text-light" > <cite title="Source Title">Washington Trails Association, Recreate Responsibly Coalition</cite> </a> </footer>
         </blockquote>
       </div>
 
