@@ -41,7 +41,7 @@ const Trail = ({ externalID }) => {
     .catch((error) => {
       console.log(error.message);
     })
-  }, [refresh]);
+  }, [refresh, externalID]);
 
 
   const count_refresh = () => {
@@ -114,7 +114,7 @@ const Trail = ({ externalID }) => {
     <div className="container trail-main-container text-center">
 
       <div className="card">
-        <img className="card-img trail-img shadow" src={trailData.imgMedium} alt="Card image" />
+        <img className="card-img trail-img shadow" src={trailData.imgMedium} alt={trailData.name} />
         <div className="card-img-overlay">
           <p className="card-text"></p>
         </div>
@@ -141,48 +141,48 @@ const Trail = ({ externalID }) => {
     
       <div className="card-deck">
         <div className="card border-0 shadow">
-          <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3cnK49FbkKIBreGnKxXexLYxK_Ta57aITBbQE4yYtRyV3foDMd9HyGBpUouADLSY4Q0dda1BzXbAhyUSFSoVTu7WjDpcCl5Drl9G2ndLkD-M3xiYW-PzMnjINXnr5erFkWNK3b9VqlQJneARaytSH2FgA=w1692-h1128-no?authuser=0" alt="Card image cap" />
+          <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3cnK49FbkKIBreGnKxXexLYxK_Ta57aITBbQE4yYtRyV3foDMd9HyGBpUouADLSY4Q0dda1BzXbAhyUSFSoVTu7WjDpcCl5Drl9G2ndLkD-M3xiYW-PzMnjINXnr5erFkWNK3b9VqlQJneARaytSH2FgA=w1692-h1128-no?authuser=0" alt="Car infront of Mountain by Makenzie Cooper from Unsplash" />
           <div className="card-img-overlay text-center text-light">
             <h3> Parking </h3>
           </div>
           <div className="card-body">
-            <h5 className="card-text">🅿️ Parking {parking_stat()} </h5>
-            <a className="card-link"> {parking_timestamp()} </a>
+            <h5 className="card-text"> <span role="img" aria-labelledby="parking"> 🅿️ </span> Parking {parking_stat()} </h5>
+            <span className="card-link"> {parking_timestamp()} </span>
           </div>
         </div>
 
         <div className="card border-0 shadow">
-          <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3f_QJYX55Fplkf43FB_1lXkjVLOj879wdVAiqOJiXkoUaP1fw_suexKflTRns3kQO1KRVj3jezRQT5V9JeutIc8UHRqRrFG9IiToFRoounFyIWAqJaQ1_40R6fvQ2BNczZ12YGQILNUxM6AzXn98xuvQg=w1840-h1226-no?authuser=0" alt="Card image cap" />
+          <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3f_QJYX55Fplkf43FB_1lXkjVLOj879wdVAiqOJiXkoUaP1fw_suexKflTRns3kQO1KRVj3jezRQT5V9JeutIc8UHRqRrFG9IiToFRoounFyIWAqJaQ1_40R6fvQ2BNczZ12YGQILNUxM6AzXn98xuvQg=w1840-h1226-no?authuser=0" alt="Hikers in mountains by Ashim-d-Silva from Unsplash" />
           <div className="card-img-overlay text-center text-light">
             <h3> Visitors </h3>
           </div>
           <div className="card-body">
-            <h5 className="card-text"> 🥾 {visitor_stat()} </h5>
-            <a className="card-link"> {visitor_timestamp()} </a>
+            <h5 className="card-text"> <span role="img" aria-labelledby="hiker boot"> 🥾</span> {visitor_stat()} </h5>
+            <p className="card-link"> {visitor_timestamp()} </p>
           </div>
         </div>
 
         <div className="card border-0 shadow">
-          <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3e6hm4nmqR9HWG4fPUvAyeWoSo34lYA9J0vv01VgLPbI4zyvEZ-CESUVZnycYH-Xv6_M9MXnGFRPVZFPM_IFqY6ExQPKlM-2bGW9FOzuYEzevXsKz97QIbEg39i4zPXueR1GQk_jVD3uYtODbqBt8X8ZQ=w1840-h1226-no?authuser=0" alt="Card image cap" />
+          <img className="card-img card-img-top" src="https://lh3.googleusercontent.com/pw/ACtC-3e6hm4nmqR9HWG4fPUvAyeWoSo34lYA9J0vv01VgLPbI4zyvEZ-CESUVZnycYH-Xv6_M9MXnGFRPVZFPM_IFqY6ExQPKlM-2bGW9FOzuYEzevXsKz97QIbEg39i4zPXueR1GQk_jVD3uYtODbqBt8X8ZQ=w1840-h1226-no?authuser=0" alt="Rainbow in mountains by Dan Meyers from Unsplash" />
           <div className="card-img-overlay text-center text-light">
             <h3> Weather </h3>
           </div>
           <div className="card-body">
-            <h5 className="card-text"> 🌡️  {weather_stat()} </h5>
-            <a className="card-link"> {weather_timestamp()} </a>
+            <h5 className="card-text"> <span role="img" aria-labelledby="weather"> 🌡️ </span>  {weather_stat()} </h5>
+            <p className="card-link"> {weather_timestamp()} </p>
           </div>
         </div>
       </div>
 
-      { trailData.conditionStatus == 'Unknown' ? "" :
+      { trailData.conditionStatus === 'Unknown' ? "" :
       <div className="card">
         <div className="card-header">
-          <h5> 🚧 Other Conditions Update </h5>
+          <h5> <span role="img" aria-labelledby="warning in construction"> 🚧 </span> Other Conditions Update </h5>
         </div>
         <div className="card-body">
-          <a className="card-link"> {trailData.conditionStatus} </a>
-          <a className="card-link"> {trailData.conditionDetails} </a>
-          <a className="card-link"> {trailData.conditionDate} </a>
+          <span className="card-link mb-2"> {trailData.conditionStatus} </span>
+          <span className="card-link mb-2"> {trailData.conditionDetails} </span>
+          <span className="card-link mb-2"> {trailData.conditionDate} </span>
         </div>
       </div>
       }
@@ -204,5 +204,10 @@ const Trail = ({ externalID }) => {
     </div>
   )
 }
+
+
+Trail.propTypes = {
+  externalID: PropTypes.number.isRequired,
+};
 
 export default Trail;

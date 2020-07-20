@@ -11,7 +11,7 @@ const App = () => {
   const [trailID, setTrailID] = useState(null);
 
   const selectTrail = (id) => {
-    console.log(id);
+    // console.log(id);
     setTrailID(id);
   }
 
