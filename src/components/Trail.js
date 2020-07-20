@@ -27,9 +27,9 @@ const Trail = ({ externalID }) => {
     axios
     .get(`${BASE_URL}/trail/${externalID}`)
     .then((response) => {
-      console.log(response.data.trails[0]);
-      console.log('JOYFUL tears! Received data from all these layers')
-      console.log(response.data.weather_updates);
+      // console.log(response.data.trails[0]);
+      // console.log('JOYFUL tears! Received data from all these layers')
+      // console.log(response.data.weather_updates);
       const newTrailData = response.data.trails[0];
       setTrailData(newTrailData);
       setSubscriptions(response.data.subscriptions);
