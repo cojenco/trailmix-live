@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './SearchResult.css';
 
@@ -18,12 +18,18 @@ const SearchResult = ({ trail, onSelectTrail }) => {
         
         
         <p className="card-text mb-2 text-muted"> {trail.summary} </p>
-        <a className="card-link"> {trail.location} </a>
-        <a className="card-link"> {trail.length} mi</a>
+        <span className="card-link"> {trail.location} </span>
+        <span className="card-link"> {trail.length} mi </span>
       </div>
     </div>
-  );
+  )
 }
+
+
+SearchResult.propTypes = {
+  trail: PropTypes.object.isRequired,
+  onSelectTrail: PropTypes.func.isRequired,
+};
 
 
 export default SearchResult;
