@@ -65,6 +65,7 @@ const LiveUpdate = ({trail, refresh}) => {
         .post(`${BASE_URL}/trail/${externalID}/live-update`, update)
         .then((response) => {
           console.log('SENT OUT!!!')
+          refresh()
         })
         .catch((error) => {
           console.log(error.message);
