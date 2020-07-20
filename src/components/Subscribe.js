@@ -4,7 +4,6 @@ import axios from 'axios';
 import './Subscribe.css';
 import Modal from 'react-bootstrap4-modal';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import Button from '@material-ui/core/Button';
 
 
@@ -63,10 +62,6 @@ const Subscribe = ({trail, refresh}) => {
 
   return (
     <div>
-      {/* <button className="btn btn-outline-danger" onClick={showModal} >
-        ❤️ Subscribe to Trail
-      </button> */}
-
       <Button
         variant="contained"
         color="secondary"
@@ -78,7 +73,6 @@ const Subscribe = ({trail, refresh}) => {
       >
         Subscribe to Trail
       </Button>
-
 
       <Modal visible={isOpen} onClickBackdrop={hideModal} className="text-center" >
         <div className="modal-header text-center">
@@ -116,7 +110,12 @@ const Subscribe = ({trail, refresh}) => {
         </div>
       </Modal>
     </div>
-  );
+  )
 }
+
+Subscribe.propTypes = {
+  trail: PropTypes.object.isRequired,
+  refresh: PropTypes.func.isRequired,
+};
 
 export default Subscribe;
