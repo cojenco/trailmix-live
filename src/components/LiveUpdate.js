@@ -9,23 +9,18 @@ import AcUnitIcon from '@material-ui/icons/AcUnit';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import GrainIcon from '@material-ui/icons/Grain';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
-import Battery20Icon from '@material-ui/icons/Battery20';
-import Battery50Icon from '@material-ui/icons/Battery50';
-import Battery80Icon from '@material-ui/icons/Battery80';
-import BatteryAlertIcon from '@material-ui/icons/BatteryAlert';
-import LocalParkingIcon from '@material-ui/icons/LocalParking';
 import Filter9PlusIcon from '@material-ui/icons/Filter9Plus';
 import Filter1Icon from '@material-ui/icons/Filter1';
 import Filter5Icon from '@material-ui/icons/Filter5';
-import Forward5Icon from '@material-ui/icons/Forward5';
-import Forward10Icon from '@material-ui/icons/Forward10';
-import Forward30Icon from '@material-ui/icons/Forward30';
 import SignalCellular0BarIcon from '@material-ui/icons/SignalCellular0Bar';
 import SignalCellular1BarIcon from '@material-ui/icons/SignalCellular1Bar';
 import SignalCellular2BarIcon from '@material-ui/icons/SignalCellular2Bar';
 import SignalCellular3BarIcon from '@material-ui/icons/SignalCellular3Bar';
 import SignalCellular4BarIcon from '@material-ui/icons/SignalCellular4Bar';
 import Button from '@material-ui/core/Button';
+// import Forward5Icon from '@material-ui/icons/Forward5';
+// import Forward10Icon from '@material-ui/icons/Forward10';
+// import Forward30Icon from '@material-ui/icons/Forward30';
 
 
 
@@ -288,7 +283,14 @@ const LiveUpdate = ({trail, refresh}) => {
         </div>
       </Modal>
     </div>
-  );
+  )
 }
+
+
+LiveUpdate.propTypes = {
+  trail: PropTypes.object.isRequired,
+  refresh: PropTypes.func.isRequired,
+};
+
 
 export default LiveUpdate;
