@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import './TrailSearch.css';
 import axios from 'axios';
 import SearchResult from './SearchResult';
-import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 
 
 const TrailSearch = ({ onSelectTrail }) => {
 
   const [ stateSelected, setStateSelected ] = useState({value: ''});
   const [ searchBar, setSearchBar ] = useState('');
-  const [ searchResults, setSearchResults ] = useState([]);
   const [ keywordResults, setKeywordResults ] = useState([]);
+  // const [ searchResults, setSearchResults ] = useState([]);
   // const BASE_URL = 'http://127.0.0.1:8000/diamondtrails'
   const BASE_URL = 'https://trailmix-base.wm.r.appspot.com/diamondtrails'
+
 
   const onInputChange = (event) => {
 		let newSearch = { ...searchBar };
@@ -21,20 +21,10 @@ const TrailSearch = ({ onSelectTrail }) => {
     setSearchBar(newSearch);
   };
 
+
   const onSelectState = (event) => {
     setStateSelected({value: event.target.value});
     setKeywordResults([]);
-    // console.log(stateSelected);
-
-    // axios
-    // .get(`${BASE_URL}/all-trails/${event.target.value}`)
-    // .then((response) => {
-    //   const newSearchResults = response.data.trails;
-    //   setSearchResults(newSearchResults);
-    // })
-    // .catch((error) => {
-    //   console.log(error.message);
-    // })
   };
 
 
@@ -46,7 +36,7 @@ const TrailSearch = ({ onSelectTrail }) => {
     .get(`${BASE_URL}/all-trails/${state}`)
     .then((response) => {
       const newSearchResults = response.data.trails;
-      setSearchResults(newSearchResults);
+      // setSearchResults(newSearchResults);
       const newKeywordResults = newSearchResults.filter(trail => trail.name.toLowerCase().includes(searchBar.toLowerCase()));
       setKeywordResults(newKeywordResults);
     })
@@ -54,8 +44,6 @@ const TrailSearch = ({ onSelectTrail }) => {
       console.log(error.message);
     })
 
-    // const newKeywordResults = newSearchResults.filter(trail => trail.name.toLowerCase().includes(searchBar.toLowerCase()));
-    // setKeywordResults(newKeywordResults);
     setSearchBar('');
   }
 
@@ -66,6 +54,7 @@ const TrailSearch = ({ onSelectTrail }) => {
     );
   })
 
+  
   const stateOptions = USA.map((single_state) => {
     return (
     <option key={single_state} value={single_state}> {single_state} </option>
@@ -78,16 +67,13 @@ const TrailSearch = ({ onSelectTrail }) => {
 
       <h1> Find <span id="live" > LIVE </span> updates on your next hike </h1>
 
-      {/* <form onSubmit={onSelectSubmit}> */}
-        <select value={stateSelected.value} onChange={onSelectState} className="custom-select rounded mb-3" id="state-select" >
-          <option defaultValue> 1 * Select State </option>
+      <select value={stateSelected.value} onChange={onSelectState} className="custom-select rounded mb-3" id="state-select" >
+        <option defaultValue> 1 * Select State </option>
 
-          <option value="WA">WA</option>
+        <option value="WA">WA</option>
 
-          {stateOptions}
-        </select>
-      {/* </form> */}
-
+        {stateOptions}
+      </select>
 
       <form onSubmit={ onSearchSubmit } className="" >
         <div className="input-group d-flex flex-column flex-wrap" id="input-section" >
@@ -120,6 +106,11 @@ const TrailSearch = ({ onSelectTrail }) => {
     </div>
   )
 }
+
+
+TrailSearch.propTypes = {
+  onSelectTrail: PropTypes.func.isRequired,
+};
 
 
 const USA = [
