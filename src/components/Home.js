@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import './Home.css';
-import axios from 'axios';
-import TrailSearch from './TrailSearch';
 
 
 const Home = () => {
 
   return (
-
     <div className="d-flex flex-column justify-content-around align-items-center flex-wrap home-second">
 
       <div className="container d-flex flex-column text-center second-block">
@@ -29,7 +25,6 @@ const Home = () => {
         </a>
       </div>
 
-       
       <div className="d-flex flex-column justify-content-around align-items-center flex-wrap text-center third-block">
         <blockquote className="blockquote text-center">
           <a href="https://www.wta.org/news/signpost/building-trail-smart-hikers-in-2020" className="align-self-center" >           
@@ -39,14 +34,8 @@ const Home = () => {
             className="d-inline-block align-top w-50"
           /> 
           </a>
-          {/* <footer className="blockquote-footer">  <a href="https://www.wta.org/go-outside/trail-smarts" className="text-light" > <cite title="Source Title">Washington Trails Association, Washington’s Recreate Responsibly Coalition</cite> </a> </footer> */}
         </blockquote>
         <h2 className="hashtag-line" > #RecreateResponsibly </h2>
-
-        {/* <article>
-          <p>Remember to recreate responsibly. Your actions can have an impact on trails and wildlife. </p>
-          <p>WTA/RRC reminds us that, "We all have a role to play in keeping people, places and communities safe as we enjoy the outdoors this summer and beyond."</p>
-        </article> */}
 
         <blockquote className="blockquote text-center">
           <p>Your actions can have an impact on trails and wildlife. </p>
@@ -56,7 +45,6 @@ const Home = () => {
       </div>
 
     </div>
-    
   )
 }
 
