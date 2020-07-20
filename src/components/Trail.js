@@ -2,10 +2,10 @@ import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import './Trail.css';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import { GoogleMap, withScriptjs, withGoogleMap, Marker } from "react-google-maps";
 import axios from 'axios';
 import Subscribe from './Subscribe';
 import LiveUpdate from './LiveUpdate';
+import Map from './Map';
 
 
 const Trail = ({ externalID }) => {
@@ -69,7 +69,6 @@ const Trail = ({ externalID }) => {
     return stats;
   }
 
-
   const parking_stat = () => {
     let stats = emptyStatus[0].message;
     if ( parkingStats.length !== 0 ) {
@@ -90,7 +89,6 @@ const Trail = ({ externalID }) => {
     return stats;
   }
 
-
   const visitor_stat = () => {
     let stats = emptyStatus[0].message;
     if ( visitorStats.length !== 0 ) {
@@ -99,7 +97,6 @@ const Trail = ({ externalID }) => {
 
     return stats;
   }
-
 
   const visitor_timestamp = () => {
     let stats = emptyStatus[0].created_at;
@@ -111,31 +108,6 @@ const Trail = ({ externalID }) => {
 
     return stats;
   }
-
-
-  const Map = () => {
-    return (
-      <GoogleMap
-        defaultZoom={10}
-        defaultCenter={{ lat: trailData.latitude, lng: trailData.longitude }}
-      >
-        <Marker position={{ lat: trailData.latitude, lng: trailData.longitude }} />
-      </GoogleMap>
-    );
-  }
-  
-  const WrappedMap = withScriptjs(withGoogleMap(Map))
-  
-  // should be nested inside the return ///////////
-  // <div style={{ width: '100vw', height: '50vh'}} >
-  //   <WrappedMap 
-  //     googleMapURL= {`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
-  //     loadingElement={<div style={{ height: "100%" }} />}
-  //     containerElement={<div style={{ height: "100%" }} />}
-  //     mapElement={<div style={{ height: "100%" }} />}
-  //   />
-  // </div>
-  //////////////////////////////////////////////////
 
 
   return (
@@ -154,7 +126,6 @@ const Trail = ({ externalID }) => {
         <span className="text-muted" > {trailData.location} </span> 
         {/* <span> {trailData.length} mi </span> */}
       </h4>
-
       </section>
 
 
@@ -228,16 +199,7 @@ const Trail = ({ externalID }) => {
         </div>
       </div>
 
-      {/* CURRENTLY END OF PAGE */}
-
-      {/* <div style={{ width: '85vw', height: '50vh'}} >
-        <WrappedMap 
-          googleMapURL= {`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
-          loadingElement={<div style={{ height: "100%" }} />}
-          containerElement={<div style={{ height: "100%" }} />}
-          mapElement={<div style={{ height: "100%" }} />}
-        />
-      </div> */}
+      <Map lat={trailData.latitude} lng={trailData.longitude} />
 
     </div>
   )
