@@ -143,7 +143,7 @@ const TrailSearch = ({ onSelectTrail }) => {
         <MyLocationIcon />Find Trails Nearby
       </button> */}
 
-      <section className="results-section" >
+      <section className="results-section d-flex flex-column justify-content-center" >
 
         {allKeywordResults}
 
