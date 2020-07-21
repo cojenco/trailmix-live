@@ -33,7 +33,18 @@
   margin: 3rem 0;
 }
 
-#live {
+.live-green {
   color: rgb(128, 212, 11);
   /* color: rgb(30, 124, 7); */
+}
+
+#nearby-btn {
+  width: 75vw;
+  height: 4.5rem;
+  margin: 5rem 0 0 0;
+  /* display: block; */
+  align-self: center;
+  background-color: rgb(100, 121, 115);
+  border-color: rgb(100, 121, 115);
+  color: rgb(128, 212, 11);
 }

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import './TrailSearch.css';
 import axios from 'axios';
 import SearchResult from './SearchResult';
+import MyLocationIcon from '@material-ui/icons/MyLocation';
+import Button from '@material-ui/core/Button';
 
 
 const TrailSearch = ({ onSelectTrail }) => {
@@ -62,10 +64,37 @@ const TrailSearch = ({ onSelectTrail }) => {
   })
 
 
+  ////////// NEW! Trails nearby using Geolocation ////////
+  const success = position => {
+    const lat = position.coords.latitude;
+    const lng = position.coords.longitude;
+
+    axios
+    .get(`${BASE_URL}/trails-nearby?lat=${lat}&lng=${lng}`)
+    .then((response) => {
+      // console.log(response.data);
+      // console.log(response.data.trails);
+      const newSearchResults = response.data.trails;
+      setKeywordResults(newSearchResults);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    })
+
+    setSearchBar('');
+    setStateSelected({value: ''});
+  };
+  
+  
+  const onSearchNearbyClick = () => {
+    navigator.geolocation.getCurrentPosition(success);
+  }
+    
+
   return (
     <div className="d-flex flex-column trailsearch-main-container text-center" >
 
-      <h1> Find <span id="live" > LIVE </span> updates on your next hike </h1>
+      <h1> Find <span className="live-green" > LIVE </span> updates on your next hike </h1>
 
       <select value={stateSelected.value} onChange={onSelectState} className="custom-select rounded mb-3" id="state-select" >
         <option defaultValue> 1 * Select State </option>
@@ -92,11 +121,27 @@ const TrailSearch = ({ onSelectTrail }) => {
             id="search-btn"
             type="submit"
             name="submit"
-            value="Search"
+            value="SEARCH"
             onClick={ onSearchSubmit }
           />
         </div>
       </form>
+
+      <Button
+        variant="contained"
+        color="default"
+        size="large"
+        className="shadow rounded"
+        startIcon={<MyLocationIcon />}
+        onClick={onSearchNearbyClick}
+        id="nearby-btn"
+      >
+        Find Trails Nearby
+      </Button>
+
+      {/* <button type="button" id="nearby-btn" className="btn btn-secondary rounded mb-3" onClick={onSearchNearbyClick} >
+        <MyLocationIcon />Find Trails Nearby
+      </button> */}
 
       <section className="results-section" >
 
