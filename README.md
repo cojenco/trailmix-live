@@ -1,5 +1,5 @@
 # Trail Mix Live
-### A web application where we can share live status updates on trails.
+### A web application to share live status updates on trails.
 
 Have you ever planned for the best weekend hike, and yet ended up arriving at the trailhead with no parking spots available? Or amid the COVID-19 pandemic, arrive at a recreation spot with too many people to practice social distancing and #RecreateResponsibly. Trail Mix Live provides an information hub where the community can share live updates on the parking status, visitors traffic, and locale weather.
 
@@ -40,7 +40,7 @@ Trail Mix Live was developed as a capstone project for [Ada Developers Academy](
     
 ## Demo
 Watch a video demo of the app [here](https://youtu.be/6MQidQ-K06E).
-<p align="center > 
+<p align="center" > 
 <a href="https://youtu.be/6MQidQ-K06E" > <img height="300" src="https://lh3.googleusercontent.com/pw/ACtC-3cKCeYWbJOijVRuDGkAjN15XTRnliQNsHm3Lgu4ERO8ItD6QF_jBJfj5hjb0EzpxiQLQA79VW4fvW-5dB3RNXHe5uvXfJL_WcF-OrmE8FcuY1b-rahQmkxGjGUpPIb6e9eAaHH5b2e1Kbu4DfTMlZWR=w2520-h1390-no?authuser=0" alt="App Home Page"> </a>
 </p>
     
@@ -51,7 +51,7 @@ This responsive web app is powered by React JS. It allows easy access on your co
 * If this is your first time using Node.js and npm, [download Node.js](https://nodejs.org/en/).
 * Clone this repository (feel free to find the dependencies in the package.json file)
 * `npm install`
-* `npm start` -- this will open up your localhost. If it doesn't open, navigate to whatever localhost your server is running on
+* `npm start` -- this will launch http://localhost:3000/ or whatever localhost your server is running on
 
 
 
